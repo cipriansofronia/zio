@@ -4,7 +4,7 @@ object Dependencies {
   // Runtime dependencies
   val JunitVersion                 = "4.13.2"
   val JunitPlatformEngineVersion   = "1.12.1"
-  val IzumiReflectVersion          = "3.0.1"
+  val IzumiReflectVersion          = "3.0.2"
   val MagnoliaScala2Version        = "1.1.10"
   val MagnoliaScala3Version        = "1.3.16"
   val RefinedVersion               = "0.11.3"
