@@ -215,6 +215,15 @@ object ZIOSpec extends ZIOBaseSpec {
           assert(d)(equalTo(2)) &&
           assert(e)(equalTo(3))
       },
+      test("provide is also cached?") {
+        case class Foo(value: Int)
+        for {
+          cached <- ZIO.serviceWith[Foo](_.value + 1).cached(Duration.Infinity).provide(ZLayer.succeed(Foo(1)))
+          a      <- cached
+          b      <- cached
+          c      <- cached
+        } yield assertTrue(a == 2, b == 2, c == 2)
+      },
       test("get is interruptible") {
         for {
           ref           <- Ref.make(0)
@@ -1532,6 +1541,15 @@ object ZIOSpec extends ZIOBaseSpec {
         val io = Random.nextString(10)
         (io <*> io)
           .map(tuple => assert(tuple._1)(not(equalTo(tuple._2))))
+      },
+      test("provide is also cached") {
+        case class Foo(value: Int)
+        for {
+          cached <- ZIO.serviceWith[Foo](_.value + 1).memoize
+          a      <- cached.provide(ZLayer.succeed(Foo(1)))
+          b      <- cached.provide(ZLayer.succeed(Foo(2)))
+          c      <- cached.provide(ZLayer.succeed(Foo(3)))
+        } yield assertTrue(a == 2, b == 2, c == 2)
       },
       test("memoized returns the same instance on repeated calls") {
         val ioMemo = Random.nextString(10).memoize
