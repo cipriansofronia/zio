@@ -24,11 +24,31 @@ trait DefaultJvmMetrics {
   @deprecated(
     "This layer exposes JVM metrics with the non-OpenMetrics-compliant names used in prometheus client_java 0.16: https://github.com/prometheus/client_java/blob/main/docs/content/migration/simpleclient.md#jvm-metrics. Use the `liveV2` layer instead, it uses names compatible with the client_java 1.0 library"
   )
-  lazy val live
-    : ZLayer[Any, Throwable, Reloadable[BufferPools] with ClassLoading with GarbageCollector with MemoryAllocation with MemoryPools with Standard with Thread with VersionInfo] =
+  lazy val live: ZLayer[
+    Any,
+    Throwable,
+    Reloadable[BufferPools]
+      with ClassLoading
+      with GarbageCollector
+      with MemoryAllocation
+      with MemoryPools
+      with Standard
+      with Thread
+      with VersionInfo
+  ] =
     withMemoryPoolsLayer(MemoryPools.live)
-  lazy val liveV2
-    : ZLayer[Any, Throwable, Reloadable[BufferPools] with ClassLoading with GarbageCollector with MemoryAllocation with MemoryPools with Standard with Thread with VersionInfo] =
+  lazy val liveV2: ZLayer[
+    Any,
+    Throwable,
+    Reloadable[BufferPools]
+      with ClassLoading
+      with GarbageCollector
+      with MemoryAllocation
+      with MemoryPools
+      with Standard
+      with Thread
+      with VersionInfo
+  ] =
     withMemoryPoolsLayer(MemoryPools.liveV2)
 
   /**
