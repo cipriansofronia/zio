@@ -2785,7 +2785,6 @@ object ZIO extends ZIOCompanionPlatformSpecific with ZIOCompanionVersionSpecific
    *
    *   1. Ensures this `acquire` effect will not be interrupted. Of course,
    *      acquisition may fail for internal reasons (an uncaught exception).
-   *
    *   1. Ensures the `release` effect will not be interrupted, and will be
    *      executed so long as this effect successfully acquires the resource.
    *
