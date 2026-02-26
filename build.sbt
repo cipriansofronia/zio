@@ -654,7 +654,7 @@ lazy val benchmarks = project.module
         "io.github.timwspence"      %% "cats-stm"      % "0.13.4",
         "io.projectreactor"          % "reactor-core"  % "3.7.4",
         "io.reactivex.rxjava2"       % "rxjava"        % "2.2.21",
-        "org.jctools"                % "jctools-core"  % "4.0.5",
+        "org.jctools"                % "jctools-core"  % "4.0.6",
         "org.typelevel"             %% "cats-effect"   % CatsEffectVersion,
         "org.scalacheck"            %% "scalacheck"    % ScalaCheckVersion,
         "qa.hedgehog"               %% "hedgehog-core" % "0.12.0",
