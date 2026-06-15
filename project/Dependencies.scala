@@ -9,7 +9,7 @@ object Dependencies {
   val MagnoliaScala3Version        = "1.3.16"
   val RefinedVersion               = "0.11.3"
   val ScalaCheckVersion            = "1.18.1"
-  val ScalaJavaTimeVersion         = "2.6.0"
+  val ScalaJavaTimeVersion         = "2.7.0"
   val ScalaCollectionCompatVersion = "2.13.0"
   val ScalaNativeCryptoVersion     = "0.2.0"
   val ScalaSecureRandomVersion     = "1.0.0"
